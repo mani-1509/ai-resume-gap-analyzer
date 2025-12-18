@@ -1,0 +1,17 @@
+{
+    "actorSpecification": 1,
+    "name": "ai-resume-gap-analyzer",
+    "title": "AI Resume Gap Analyzer",
+    "description": "Analyzes resumes against target roles to identify skill gaps, ATS weaknesses, and provides actionable improvement recommendations. Built for career intelligence and coaching platforms.",
+    "version": "1.0",
+    "meta": {
+        "templateId": "js-crawlee-cheerio",
+        "generatedBy": "Claude Sonnet 4.5"
+    },
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}

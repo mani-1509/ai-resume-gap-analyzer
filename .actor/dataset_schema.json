@@ -1,0 +1,194 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "candidateName": {
+            "title": "Candidate Name",
+            "type": "string",
+            "description": "Name extracted from resume (if available)"
+        },
+        "targetRole": {
+            "title": "Target Role",
+            "type": "string",
+            "description": "The role being analyzed for"
+        },
+        "analysisDate": {
+            "title": "Analysis Date",
+            "type": "string",
+            "description": "Timestamp of when analysis was performed"
+        },
+        "relevanceScore": {
+            "title": "Relevance Score",
+            "type": "object",
+            "description": "Overall resume relevance metrics",
+            "properties": {
+                "overall": {
+                    "type": "number",
+                    "description": "Overall match score (0-100)"
+                },
+                "skills": {
+                    "type": "number",
+                    "description": "Skills match score (0-100)"
+                },
+                "experience": {
+                    "type": "number",
+                    "description": "Experience relevance score (0-100)"
+                },
+                "atsCompatibility": {
+                    "type": "number",
+                    "description": "ATS system compatibility score (0-100)"
+                }
+            }
+        },
+        "skillGaps": {
+            "title": "Skill Gaps",
+            "type": "array",
+            "description": "Skills missing or weak in the resume",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "skill": {
+                        "type": "string"
+                    },
+                    "importance": {
+                        "type": "string",
+                        "enum": ["critical", "important", "nice-to-have"]
+                    },
+                    "reason": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "atsKeywords": {
+            "title": "ATS Keywords",
+            "type": "object",
+            "description": "Keywords for Applicant Tracking Systems",
+            "properties": {
+                "present": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "missing": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "suggestions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "projectRecommendations": {
+            "title": "Project Recommendations",
+            "type": "array",
+            "description": "Recommended projects to build for this role",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "skillsCovered": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "estimatedTime": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "string",
+                        "enum": ["high", "medium", "low"]
+                    }
+                }
+            }
+        },
+        "learningPath": {
+            "title": "Learning Path",
+            "type": "array",
+            "description": "Recommended learning resources and sequence",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "enum": ["course", "documentation", "book", "tutorial", "certification"]
+                    },
+                    "estimatedTime": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "improvementActions": {
+            "title": "Improvement Actions",
+            "type": "array",
+            "description": "Concrete actions to improve resume and candidacy",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string",
+                        "enum": ["resume-format", "skills", "experience", "projects", "certifications", "networking"]
+                    },
+                    "impact": {
+                        "type": "string",
+                        "enum": ["high", "medium", "low"]
+                    },
+                    "timeframe": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "summary": {
+            "title": "Executive Summary",
+            "type": "string",
+            "description": "High-level summary of the analysis and readiness"
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Analysis Overview",
+            "transformation": {
+                "fields": ["targetRole", "relevanceScore", "summary"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "targetRole": {
+                        "label": "Target Role",
+                        "format": "text"
+                    },
+                    "relevanceScore": {
+                        "label": "Relevance Score",
+                        "format": "object"
+                    },
+                    "summary": {
+                        "label": "Summary",
+                        "format": "text"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "resumeText": "John Doe\nSoftware Developer\nEmail: john@example.com | Phone: 555-0123\n\nPROFESSIONAL SUMMARY\nMotivated software developer with 3 years of experience in web development. Proficient in JavaScript, React, and Node.js. Passionate about building user-friendly applications.\n\nEXPERIENCE\nJunior Software Developer\nTech Solutions Inc. | 2021 - Present\n- Developed responsive web applications using React and Redux\n- Collaborated with cross-functional teams using Agile methodology\n- Implemented RESTful APIs with Node.js and Express\n- Participated in code reviews and pair programming sessions\n\nWeb Development Intern\nStartup Co. | 2020 - 2021\n- Built landing pages with HTML, CSS, and JavaScript\n- Assisted in debugging and testing web applications\n- Learned version control using Git and GitHub\n\nEDUCATION\nBachelor of Science in Computer Science\nState University | 2020\n\nSKILLS\n- Languages: JavaScript, HTML, CSS, Python\n- Frameworks: React, Node.js, Express\n- Tools: Git, VS Code, Chrome DevTools\n- Databases: MongoDB, MySQL\n- Methodologies: Agile, Scrum",
+    "targetRole": "Senior Full Stack Engineer",
+    "targetCompany": "Google",
+    "experienceLevel": "mid",
+    "additionalContext": "Interested in cloud infrastructure and system design. Want to transition to more senior role with architecture responsibilities."
+}
