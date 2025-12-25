@@ -285,26 +285,50 @@ try {
             experience: 0,
             atsCompatibility: 0
         },
-        skillGaps: analysisResult.skillGaps || [],
+        skillGaps: (analysisResult.skillGaps && analysisResult.skillGaps.length > 0) ? analysisResult.skillGaps : [
+            {
+                skill: 'Unable to determine specific gaps',
+                importance: 'critical',
+                reason: 'Incomplete analysis - please add NEBIUS_API_KEY for detailed insights'
+            }
+        ],
         atsKeywords: analysisResult.atsKeywords || {
             present: [],
             missing: [],
             suggestions: []
         },
-        projectRecommendations: analysisResult.projectRecommendations || [],
-        learningPath: analysisResult.learningPath || [],
-        improvementActions: analysisResult.improvementActions || [],
-        summary: analysisResult.summary || 'Analysis completed.'
+        projectRecommendations: (analysisResult.projectRecommendations && analysisResult.projectRecommendations.length > 0) ? analysisResult.projectRecommendations : [
+            {
+                title: 'Build a Portfolio Project',
+                description: 'Create a project that demonstrates the skills required for your target role',
+                skillsCovered: ['relevant technical skills'],
+                estimatedTime: '2-4 weeks',
+                priority: 'high'
+            }
+        ],
+        learningPath: (analysisResult.learningPath && analysisResult.learningPath.length > 0) ? analysisResult.learningPath : [
+            {
+                topic: 'Role-specific technical skills',
+                resourceType: 'course',
+                estimatedTime: '1-3 months',
+                priority: 1
+            }
+        ],
+        improvementActions: (analysisResult.improvementActions && analysisResult.improvementActions.length > 0) ? analysisResult.improvementActions : [
+            {
+                action: 'Configure NEBIUS_API_KEY environment variable for detailed analysis',
+                category: 'skills',
+                impact: 'high',
+                timeframe: 'immediate'
+            }
+        ],
+        summary: analysisResult.summary || 'Analysis completed. For detailed insights, configure the Nebius API key in your Actor settings.'
     };
 
     // Save results to dataset
     await Actor.pushData(completeResult);
 
-    console.log('Analysis complete', {
-        overallScore: completeResult.relevanceScore.overall,
-        skillGapsFound: completeResult.skillGaps.length,
-        projectRecommendations: completeResult.projectRecommendations.length
-    });
+    console.log('Complete Result: ', completeResult);
 
 } catch (error) {
     console.error('Failed to complete analysis', error.message);
