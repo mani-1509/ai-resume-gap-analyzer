@@ -8,20 +8,23 @@
             "type": "string",
             "description": "The full text content of the resume to analyze.",
             "editor": "textarea",
-            "minLength": 50
+            "minLength": 50,
+            "prefill": "John Doe\nSoftware Developer\nEmail: john@example.com | Phone: 555-0123\n\nPROFESSIONAL SUMMARY\nMotivated software developer with 3 years of experience in web development. Proficient in JavaScript, React, and Node.js.\n\nEXPERIENCE\nJunior Software Developer\nTech Solutions Inc. | 2021 - Present\n- Developed responsive web applications using React and Redux\n- Implemented RESTful APIs with Node.js and Express\n- Participated in code reviews and Agile sprints\n\nEDUCATION\nBachelor of Science in Computer Science\nState University | 2020\n\nSKILLS\nLanguages: JavaScript, HTML, CSS, Python\nFrameworks: React, Node.js, Express\nTools: Git, VS Code\nDatabases: MongoDB, MySQL"
         },
         "targetRole": {
             "title": "Target Role",
             "type": "string",
             "description": "The job title or role the candidate is targeting (e.g., 'Senior Software Engineer', 'Product Manager').",
             "editor": "textfield",
-            "minLength": 2
+            "minLength": 2,
+            "prefill": "Senior Full Stack Engineer"
         },
         "targetCompany": {
             "title": "Target Company (Optional)",
             "type": "string",
             "description": "Specific company name for targeted analysis. Leave empty for general role analysis.",
-            "editor": "textfield"
+            "editor": "textfield",
+            "prefill": ""
         },
         "experienceLevel": {
             "title": "Experience Level",
@@ -30,13 +33,15 @@
             "editor": "select",
             "enum": ["entry", "mid", "senior", "lead", "executive"],
             "enumTitles": ["Entry Level (0-2 years)", "Mid Level (2-5 years)", "Senior (5-8 years)", "Lead/Staff (8+ years)", "Executive/Director"],
-            "default": "mid"
+            "default": "mid",
+            "prefill": "mid"
         },
         "additionalContext": {
             "title": "Additional Context (Optional)",
             "type": "string",
             "description": "Any additional information like specific skills to focus on, career goals, or constraints.",
-            "editor": "textarea"
+            "editor": "textarea",
+            "prefill": ""
         }
     },
     "required": ["resumeText", "targetRole", "experienceLevel"]
