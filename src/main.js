@@ -47,7 +47,7 @@ if (!hasApiKey) {
 
 // Initialize Nebius AI client (uses OpenAI SDK with custom base URL)
 const nebius = hasApiKey ? new OpenAI({
-    apiKey: apiKey,
+    apiKey,
     baseURL: 'https://api.studio.nebius.ai/v1/'
 }) : null;
 
